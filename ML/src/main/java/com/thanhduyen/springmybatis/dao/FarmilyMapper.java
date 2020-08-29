@@ -41,9 +41,9 @@ public class FarmilyMapper {
 		return farmilysList;
 	}
 	
-	public Farmily findById(int farmilyId){
+	public Farmily findFarmilyById(int farmilyId){
 		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-		Farmily farmily = (Farmily) session.selectOne("findById", farmilyId);
+		Farmily farmily = (Farmily) session.selectOne("findFarmilyById", farmilyId);
 		session.commit();
 		session.close();
 		return farmily;

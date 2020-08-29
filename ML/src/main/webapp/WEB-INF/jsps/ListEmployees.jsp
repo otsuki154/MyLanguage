@@ -56,6 +56,8 @@
 				</tbody>
 			</c:forEach>
 		</table>
+		<hr>
+		<a href="<%=request.getContextPath()%>/farmily/listOfFarmily.html">Farmily List</a>
 	</div>
 
 </body>

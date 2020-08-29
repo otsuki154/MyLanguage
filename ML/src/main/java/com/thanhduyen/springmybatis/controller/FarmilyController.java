@@ -17,19 +17,19 @@ public class FarmilyController {
 	@Autowired
 	FarmilyMapper farmilyMapper;
 	
-	private static final String EMPLOYEE = "Farmily";
-	private static final String EMPLOYEELIST = "ListFarmilys";
+	private static final String FARMILY = "Farmily";
+	private static final String FARMILYLIST = "ListFarmilys";
 	
-	@RequestMapping("/listOfEmployee")
+	@RequestMapping("/listOfFarmily")
 	public String showListOfFarmilys(Model model){
 		model.addAttribute("farmilyList", farmilyMapper.getAllFarmilys());
-		return EMPLOYEELIST;
+		return FARMILYLIST;
 	}
 	
 	@RequestMapping("/showFormForAdd")
 	public String addFarmily(Model model){
 		model.addAttribute("farmily", new Farmily());
-		return EMPLOYEE;
+		return FARMILY;
 	}
 	
 	@RequestMapping("/saveProcess")
@@ -45,8 +45,8 @@ public class FarmilyController {
 	
 	@RequestMapping("/displayUpdateForm")
 	public String showUpdateForm(@RequestParam("farmilyId") int farmilyId, Model model){
-		model.addAttribute("farmily", farmilyMapper.findById(farmilyId));
-		return EMPLOYEE;
+		model.addAttribute("farmily", farmilyMapper.findFarmilyById(farmilyId));
+		return FARMILY;
 	}
 	
 	@RequestMapping("/displayDeleteForm")

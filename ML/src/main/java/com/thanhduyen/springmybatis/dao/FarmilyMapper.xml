@@ -32,7 +32,7 @@
 		DELETE FROM farmily WHERE id = #{farmilyId}
 	</delete>
 	
-	<select id="findById" parameterType="int" resultType="farmily" resultMap="result">
-		SELECT * FROM farmily WHERE id = #{employeeId}
+	<select id="findFarmilyById" parameterType="int" resultType="farmily" resultMap="result">
+		SELECT * FROM farmily WHERE id = #{farmilyId}
 	</select> 
 </mapper>

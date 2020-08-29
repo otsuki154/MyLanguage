@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="package com.thanhduyen.springmybatis.FarmilyMapper">
+	
+	<resultMap type="farmily" id="result">
+		<id property="id" column="id" />
+		<result property="fullname" column="fullname" />
+		<result property="email" column="email" />
+		<result property="gender" column="gender" />
+		<result property="hobbies" column="hobbies" />
+		<result property="country" column="country" />
+		<result property="address" column="address" />
+	</resultMap>
+	
+	<select id="getAllFarmilys" resultType="farmily" resultMap="result">
+		SELECT * FROM farmily
+	</select>
+	
+	<insert id="insertFarmily" parameterType="farmily" keyProperty="id" useGeneratedKeys="true">
+		INSERT INTO farmily(fullname, email, gender, hobbies, country, address)
+		VALUES(#{fullname}, #{email}, #{gender}, #{hobbies}, #{country}, #{address})
+	</insert>
+	
+	<update id="updateFarmily" parameterType="farmily">
+		UPDATE farmily SET fullname = #{fullname}, email = #{email}, gender = #{gender}, hobbies = #{hobbies}, country = #{country}, address = #{address} 
+		WHERE id = #{id} 
+	</update>
+	
+	<delete id="deleteFarmily" parameterType="int">
+		DELETE FROM farmily WHERE id = #{farmilyId}
+	</delete>
+	
+	<select id="findById" parameterType="int" resultType="farmily" resultMap="result">
+		SELECT * FROM farmily WHERE id = #{employeeId}
+	</select> 
+</mapper>

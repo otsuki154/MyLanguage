@@ -23,4 +23,4 @@ change username and password as per your mysql installation
 
 mvn package
 
-The app will start running at http://localhost:8080/ML/.
+The app will start running at http://localhost:8080/ML/

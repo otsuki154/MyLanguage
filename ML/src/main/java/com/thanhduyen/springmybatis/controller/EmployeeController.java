@@ -32,7 +32,7 @@ public class EmployeeController {
 	
 	@RequestMapping("/showFormForAdd")
 	public String addEmployee(Model model){
-		
+		model.addAttribute("employee", new Employee());
 		return EMPLOYEE;
 	}
 	

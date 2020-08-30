@@ -16,6 +16,9 @@
 
 		<h1 class="text-success">Employee Details</h1>
 		<p align="right">
+		<button
+				onclick="window.location.href = 'showFormPrintPdf.html'; return false;"
+				class="btn btn-outline-success">Print Pdf</button>
 			<button
 				onclick="window.location.href = 'showFormForAdd.html'; return false;"
 				class="btn btn-outline-success">Add Employee</button>

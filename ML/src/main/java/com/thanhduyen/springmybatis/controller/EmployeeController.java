@@ -3,12 +3,14 @@ package com.thanhduyen.springmybatis.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.thanhduyen.springmybatis.dao.EmployeeMapper;
 import com.thanhduyen.springmybatis.entity.Employee;
+import com.thanhduyen.springmybatis.report.EmployeeReport;
 
 
 
@@ -20,6 +22,7 @@ public class EmployeeController {
 	
 	private static final String EMPLOYEE = "Employee";
 	private static final String EMPLOYEELIST = "ListEmployees";
+	private static final String PRINT_EMPLOYEELIST = "PrintListEmployees";
 	
 	@RequestMapping("/listOfEmployee")
 	public String showListOfEmployees(Model model){
@@ -29,8 +32,15 @@ public class EmployeeController {
 	
 	@RequestMapping("/showFormForAdd")
 	public String addEmployee(Model model){
-		model.addAttribute("employee", new Employee());
+		
 		return EMPLOYEE;
+	}
+	
+	@RequestMapping("/showFormPrintPdf")
+	public String printEmployee(ModelMap modelMap){
+		EmployeeReport e = new EmployeeReport();
+		modelMap.put("employeeList", e.getAllEmployees());
+		return PRINT_EMPLOYEELIST;
 	}
 	
 	@RequestMapping("/saveProcess")

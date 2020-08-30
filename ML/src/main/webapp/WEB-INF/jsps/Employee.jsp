@@ -3,10 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="s"%>
 <%@include file="../html/header.html" %>
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <body>
-
+	<!-- Menu container -->
+	<div class=container>
+		<%@include file="menu.jsp"%>
+	</div>
+	<!-- Detail container -->
 	<div class="container">
 		<h1 class="text-success">Employee Details</h1>
 		<hr />

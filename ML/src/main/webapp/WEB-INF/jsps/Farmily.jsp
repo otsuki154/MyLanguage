@@ -6,7 +6,11 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <body>
-
+	<!-- Menu container -->
+	<div class=container>
+		<%@include file="menu.jsp"%>
+	</div>
+	<!-- Detail container -->
 	<div class="container">
 		<h1 class="text-success">Farmily Details</h1>
 		<hr />

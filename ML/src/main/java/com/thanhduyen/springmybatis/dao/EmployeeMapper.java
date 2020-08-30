@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.thanhduyen.springmybatis.entity.Employee;
 import com.thanhduyen.springmybatis.util.MyBatisUtil;
 
-
-
-
 @Repository
 public class EmployeeMapper {
 	
@@ -21,6 +18,7 @@ public class EmployeeMapper {
 		session.close();
 	}
 	
+
 	public void updateEmployee(Employee employee){
 		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
 		session.update("updateEmployee", employee);

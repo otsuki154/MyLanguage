@@ -2,19 +2,25 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="s"%>
-<%@include file="../html/header.html" %>
+<%@include file="../html/header.html"%>
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <body>
-
+	<!-- Menu container -->
+	<div class=container>
+		<%@include file="menu.jsp"%>
+	</div>
+	<!-- Detail container -->
 	<div class="container">
+
 		<h1 class="text-success">Employee Details</h1>
 		<p align="right">
 			<button
 				onclick="window.location.href = 'showFormForAdd.html'; return false;"
 				class="btn btn-outline-success">Add Employee</button>
 		</p>
-		<hr class="border border-success"/>
+		<hr class="border border-success" />
 		<table border="1" class="table table-striped table-bordered">
 			<thead class="thead-dark">
 				<tr>
@@ -51,8 +57,7 @@
 				</tbody>
 			</c:forEach>
 		</table>
-		<hr>
-		<a href="<%=request.getContextPath()%>/farmily/listOfFarmily.html">Farmily List</a>
+		<hr class="border border-success" />
 	</div>
 
 </body>

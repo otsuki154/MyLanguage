@@ -1,39 +1,15 @@
 <%@ page contentType="application/pdf"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-
-<%@ page import="net.sf.jasperreports.engine.*"%>
-<%@ page import="net.sf.jasperreports.engine.data.*"%>
-
-<%@ page import="java.io.*"%>
-<%@ page import="java.util.*"%>
-<%@ page import="java.lang.*"%>
+<%@ page import="com.thanhduyen.springmybatis.util.*"%>
 
 <%@ include file="../html/header.html"%>
 
-<body>
 	<%
-		try {
-
-			@SuppressWarnings("unchecked")
-			List<Map<String, ?>> dataSource = (List<Map<String, ?>>) request.getAttribute("employeeList");
-
-			JRDataSource jrDataSource = new JRBeanCollectionDataSource(dataSource);
-
-			String jrxmlFile = session.getServletContext().getRealPath("/report/EmployeeListReport.jrxml");
-			InputStream input = new FileInputStream(new File(jrxmlFile));
-
-			JasperReport jasperReport = JasperCompileManager.compileReport(input);
-
-			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, jrDataSource);
-
-			JasperExportManager.exportReportToPdfStream(jasperPrint, response.getOutputStream());
-
-			response.getOutputStream().flush();
-			response.getOutputStream().close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		String dtSoureName = "employeeList";
+		String reportName = "/report/EmployeeListReport.jrxml";
+		
+		PrintUtil printUtil = new PrintUtil();
+		printUtil.printPdf(request, response, dtSoureName, reportName);
 	%>
-</body>
-</html>
+	
+<%@ include file="../html/footer.html"%>
